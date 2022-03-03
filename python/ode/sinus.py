@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Parametry
-maxt = 100
+maxt = 10
 dt = 0.001
 
 # Počáteční podmínky
@@ -31,7 +32,9 @@ while ti < maxt:
     vi = vi1
     ti = ti1
 
-plt.plot(t, y)
+plt.plot(t, y, label=f"Řešení DR s dt={dt}")
+plt.plot(t, np.sin(t), label="sin(t)")
 plt.xlabel('t')
 plt.ylabel('y')
+plt.legend()
 plt.show()
