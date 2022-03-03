@@ -1,6 +1,8 @@
+import matplotlib.pyplot as plt
+
 # Parametry
-maxt = 10
-dt = 0.1
+maxt = 100
+dt = 0.001
 
 # Počáteční podmínky
 y0 = 0
@@ -9,6 +11,7 @@ v0 = 1
 # Výsledek
 y = [y0]
 v = [v0]
+t = [0]
 
 # Nultý krok
 yi = y0
@@ -22,9 +25,13 @@ while ti < maxt:
 
     y.append(yi1)
     v.append(vi1)
+    t.append(ti1)
 
     yi = yi1
     vi = vi1
     ti = ti1
 
-print(y)
+plt.plot(t, y)
+plt.xlabel('t')
+plt.ylabel('y')
+plt.show()
