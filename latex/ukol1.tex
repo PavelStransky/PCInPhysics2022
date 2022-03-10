@@ -70,7 +70,7 @@ K řešení diferenciálních rovnic použijte Runge-Kuttovu metodu 4. řádu:
     \vector{k}_{4}&=\vector{f}\left(\vector{w}_{i}+\vector{k}_{3}\Delta t,t+\Delta t\right),\\
     \vector{\phi}_{i}&=\frac{1}{6}\left(\vector{k}_{1}+2\vector{k}_{2}+2\vector{k}_{3}+\vector{k}_{4}\right),\\
 \end{align*}
-kde $\vector{w}=(x,y,z)$ a integrační krok se dělá stejně jako u ostatních procvičovaných jednokrokových algoritmů,
+kde $\vector{w}=(x,y,z)$, $\vector{f}$ je pravá strana soustavy rovnic Lorenzova systému a integrační krok se dělá stejně jako u ostatních procvičovaných jednokrokových algoritmů,
 \begin{equation*}
     \vector{w}_{i+1}=\vector{w}_{i}+\vector{\phi}_{i}\Delta t.
 \end{equation*}
