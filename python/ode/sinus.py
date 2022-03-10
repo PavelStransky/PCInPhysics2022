@@ -14,7 +14,7 @@ def model(y, t):
     x, v = y
     return np.array([v, -x])
 
-y, t = ode.ode_solve(model, [y0, v0], dt, maxt)
+y, t = ode.ode_solve(model, [y0, v0], ode.euler_2, dt, maxt)
 
 plt.plot(t, y[:,0], label=f"Řešení DR s dt={dt}")
 plt.plot(t, np.sin(t), label="sin(t)")
