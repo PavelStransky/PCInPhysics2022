@@ -65,14 +65,14 @@
         \end{align*}
         a minimum zobecněné Rosenbrockovy funkce
         \begin{equation*}
-            r(\vector{x})=\sum_{j=1}^{D-1}\left[\left(a-x_{i}\right)^{2}+b\left(x_{i+1}-x_{i}^{2}\right)^2\right]
+            r(\vector{x})=\sum_{i=1}^{D-1}\left[\left(a-x_{i}\right)^{2}+b\left(x_{i+1}-x_{i}^{2}\right)^2\right],
         \end{equation*}
         kde $\vector{x}=(x_1,x_2,\dotsc,x_D)$. Počítejte pro $a=1, b=100, D=7$.
-        Řešení hledejte v oblasti, kde jsou všechny souřadnice kladné, tj. kde $x_{i}\geq0$.
+        Řešení hledejte v oblasti, kde jsou všechny souřadnice kladné, tj. kde $x_{i}\geq0,i=1,\dotsc,D$.
 
     \item Minimum nalezneme tím přesněji, čímje kratší bude krok $d$ v náhodné procházce.
         Pokud však krátký krok použijeme od samého začátku náhodné procházky, výpočet bude trvat velmi dlouho.
-        Naprogramujte tedy minimalizační proceduru s \emph{proměnným krokem}: Začněte náhodnou procházku s delším krokem a krok postupně vhodně zmenšujte.
+        Naprogramujte tedy minimalizační proceduru s \emph{proměnným krokem}: Začněte náhodnou procházku s delším krokem a krok postupně \emph{vhodně} zmenšujte.
         Při optimálním naprogramování bude přesnost nalezení minima úměrná velikosti kroku na konci náhodné procházky.
 \end{enumerate}
 \end{document}
