@@ -34,4 +34,4 @@ def sum_m_uniform(m=2, num_values=100000, num_bins=100):
 
     plot_histogram(data, f"Součet {m} rovnoměrně rozdělených čísel", num_bins=num_bins, min_value=0, max_value=m, normalize=False)
 
-sum_m_uniform(m=12)
+sum_m_uniform(m=6)
