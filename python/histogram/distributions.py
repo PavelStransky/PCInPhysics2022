@@ -36,10 +36,20 @@ def sum_m_uniform(m=2, num_values=100000, num_bins=100):
 
     plot_histogram(data, f"Součet {m} rovnoměrně rozdělených čísel", num_bins=num_bins, min_value=0, max_value=m, normalize=False)
 
-#sum_m_uniform(m=12)
+def gauss_compare(num_values=100000, num_bins=100):
+    """ Gauss distribution by various methods """
+    data = [gauss.generator_hit_and_miss() for _ in range(num_values)]
+    
+    plot_histogram(data, title="Metoda Hit and Miss", num_bins=num_bins, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
 
-N = 100000
-data = [gauss.generator_hit_and_miss() for _ in range(N)]
-#data = [gauss.generator_clt() for _ in range(N)]
+    data = [gauss.generator_clt() for _ in range(num_values)]
+    plot_histogram(data, title="Metoda z centrální limitní věty", num_bins=num_bins, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
 
-plot_histogram(data, num_bins=100, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
+    data = np.random.normal(size=num_values)
+    plot_histogram(data, title="Generátor numpy", num_bins=num_bins, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
+
+gauss_compare()
+
+
+
+
