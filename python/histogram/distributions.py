@@ -39,7 +39,7 @@ def sum_m_uniform(m=2, num_values=100000, num_bins=100):
 #sum_m_uniform(m=12)
 
 N = 100000
-#data = [gauss.generator_hit_and_miss() for _ in range(N)]
-data = [gauss.generator_clt() for _ in range(N)]
+data = [gauss.generator_hit_and_miss() for _ in range(N)]
+#data = [gauss.generator_clt() for _ in range(N)]
 
 plot_histogram(data, num_bins=100, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
