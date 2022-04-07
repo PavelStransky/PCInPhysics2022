@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 
 from histogram import histogram
 
+import gauss
+
 def plot_histogram(data, title="", distribution_function=None, **kwargs):
     """ Plots data and compares them with theoretic distributionFunction, if specified """
     x, h = histogram(data, **kwargs)
@@ -34,4 +36,10 @@ def sum_m_uniform(m=2, num_values=100000, num_bins=100):
 
     plot_histogram(data, f"Součet {m} rovnoměrně rozdělených čísel", num_bins=num_bins, min_value=0, max_value=m, normalize=False)
 
-sum_m_uniform(m=12)
+#sum_m_uniform(m=12)
+
+N = 100000
+#data = [gauss.generator_hit_and_miss() for _ in range(N)]
+data = [gauss.generator_clt() for _ in range(N)]
+
+plot_histogram(data, num_bins=100, min_value=-6, max_value=6, normalize=True, distribution_function=gauss.gaussian_distribution)
