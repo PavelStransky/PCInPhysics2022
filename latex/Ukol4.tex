@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt,twoside]{article}
+\usepackage[utf8]{inputenc}	% Text coding
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[czech]{babel}
+\usepackage{epsfig}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{xifthen}
+\usepackage{amsthm,thmtools}
+\usepackage{bold-extra}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[subrefformat=simple,labelformat=simple]{subcaption} % Instead of subfigure
+
+% Page size
+\addtolength{\topmargin}{-1.5cm} %\addtolength{\textheight}{-10cm}
+\addtolength{\textwidth}{4cm} \addtolength{\textheight}{4cm} % Width and height of the text
+\addtolength{\voffset}{-0.5cm} % Top margin
+\addtolength{\hoffset}{-2cm}
+\setlength{\headheight}{15pt}
+
+\DeclareMathOperator{\e}{e}
+
+\def\vector#1{\boldsymbol{#1}}								% Vector
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\derivative}[3][]{\ifthenelse{\isempty{#1}}	    % Normal derivative
+	{\frac{\d{#2}}{\d{#3}}}
+	{\frac{\d^{#1}{#2}}{\d{#3}^{#1}}}
+}
+\newcommand{\im}{\mathrm{i}}
+
+\def\makematrix#1{\begin{pmatrix}#1\end{pmatrix}}       % Matrix
+\def\abs#1{\left|#1\right|}
+\def\probability#1{\mathrm{Pr}\left[#1\right]}
+\def\expectation#1{\mathrm{E}\left[#1\right]}
+\def\dispersion#1{\sigma_{#1}^{2}}
+
+\def\code#1{\textnormal{\texttt{#1}}}
+\def\file#1{\textnormal{\textbf{\texttt{#1}}}}
+\def\ghfile#1#2{\textnormal{\textbf{\texttt{\href{https://github.com/PavelStransky/PCInPhysics2021/blob/main/#1#2}{#2}}}}}
+
+\def\abbreviation#1{\textnormal{\textsc{#1}}}
+
+\begin{document}
+
+\section*{Domácí úkol na 28.4.2022}
+\subsection*{Monte Carlo}
+Pro úspěšné vyřešení úkolu stačí správně naprogramovat dvě ze tří následujících úloh.
+\subsubsection*{1. Narozeninový problém}
+    Uvažujte skupinu $n$ lidí. 
+    Jaká je pravděpodobnost, že dva lidi ve skupině budou mít narozeniny ve stejný den? 
+    Úlohu vyřešte metodou Monte Carlo: 
+    Pokud nagenerujete náhodně $N_\mathrm{celkem}$-krát narozeniny $n$ lidí a označíte $N_{\mathrm{zásah}}$ případy, kdy alespoň dvoje narozeniny padnou na stejný den, 
+    bude podle zákona velkých čísel hledaná pravděpodobnost rovna
+    \begin{equation*}
+        p\approx\frac{N_{\mathrm{zásah}}}{N_{\mathrm{celkem}}}
+    \end{equation*}
+    Naprogramujte tuto úlohu a určete,
+
+    \begin{itemize}
+        \item jaká pravděpodobnost vychází pro skupinu 10 lidí a
+        \item jakou nejmenší skupinu potřebujete, aby byla pravděpodobnost alespoň 50\%?
+    \end{itemize}
+
+\subsubsection*{2. Objem $d$-rozměrné koule}
+    Vytvořte program, který spočítá metodou Monte Carlo objem $d$-rozměrné jednotkové koule.
+    Pro jakou dimenzi $d$ bude tento objem největší číslo?
+
+\subsubsection*{3. Gaussovka na srdci}
+    Metodou Monte Carlo vypočítejte integrál dvourozměrné Gaussovské funkce
+    \begin{equation*}
+        I=\int_{\heartsuit}\frac{1}{2\pi}\e^{-\frac{1}{2}\left(x^{2}+y^{2}\right)}\d x\,\d y
+    \end{equation*}
+    na oblasti ohraničené parametricky zadanou křivkou (obrázek):
+    \begin{align*}
+        \heartsuit: 
+            x&=\sin^{3}{\phi},\\
+            y&=\frac{1}{16}\left(13\cos{\phi}-5\cos{2\phi}-2\cos{3\phi}-\cos{4\phi}\right),\\
+            \phi&\in\langle0;2\pi).
+    \end{align*}
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.41\linewidth]{heart.png}
+    \end{figure}
+\end{document}
+
